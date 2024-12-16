@@ -1,0 +1,58 @@
+StartDate,EndDate,Status,IPAddress,Progress,Duration (in seconds),Finished,RecordedDate,ResponseId,RecipientLastName,RecipientFirstName,RecipientEmail,ExternalReference,LocationLatitude,LocationLongitude,DistributionChannel,UserLanguage,Q1,Q2,Q3
+2024-12-15 17:15:38,2024-12-15 17:17:26,Survey Preview,,100,108,True,2024-12-15 17:17:27,R_3PBfWs3aEQ60F0n,,,,,42.3737,-71.1284,preview,EN,Yanny,3,6
+2024-12-15 17:23:31,2024-12-15 17:24:03,IP Address,65.112.8.21,100,31,True,2024-12-15 17:24:04,R_7Ovo4cD6nxI4aSl,,,,,42.3737,-71.1284,anonymous,EN,Yanny,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-15 17:23:35,2024-12-15 17:24:11,IP Address,65.112.8.26,100,35,True,2024-12-15 17:24:11,R_1bCp5UL5FLv16ff,,,,,42.3737,-71.1284,anonymous,EN,Yanny,5,4
+2024-12-15 17:24:39,2024-12-15 17:25:11,IP Address,65.112.8.57,100,32,True,2024-12-15 17:25:11,R_5CHAIdqaC1Oq5QS,,,,,42.3737,-71.1284,anonymous,EN,Yanny,3,5
+2024-12-15 17:23:49,2024-12-15 17:25:28,IP Address,65.112.8.58,100,99,True,2024-12-15 17:25:29,R_5oXWoTkXihi09hD,,,,,42.3737,-71.1284,anonymous,EN,Yanny,5,5
+2024-12-15 17:24:59,2024-12-15 17:25:37,IP Address,65.112.8.50,100,37,True,2024-12-15 17:25:37,R_5p2WiDzorhxAqYh,,,,,42.3737,-71.1284,anonymous,EN,Yanny,I heard Laurel for all of them,6
+2024-12-15 17:25:22,2024-12-15 17:26:16,IP Address,65.112.8.30,100,53,True,2024-12-15 17:26:16,R_13QysecjObFNZoB,,,,,42.3737,-71.1284,anonymous,EN,Laurel,4,5
+2024-12-15 17:25:30,2024-12-15 17:26:44,IP Address,65.112.8.24,100,73,True,2024-12-15 17:26:45,R_3493TbZrdwSX9Sh,,,,,42.3737,-71.1284,anonymous,EN,Laurel,5,5
+2024-12-15 17:28:31,2024-12-15 17:29:36,IP Address,76.33.139.26,100,64,True,2024-12-15 17:29:36,R_3ORkhA2kJ5aUdsl,,,,,34.1251,-117.8557,anonymous,EN,Yanny,4,5
+2024-12-15 17:29:57,2024-12-15 17:30:56,IP Address,65.112.8.19,100,58,True,2024-12-15 17:30:57,R_5XtlMQ9d9uQxs3L,,,,,42.3737,-71.1284,anonymous,EN,Laurel,6,4
+2024-12-15 17:29:57,2024-12-15 17:31:19,IP Address,65.112.8.30,100,82,True,2024-12-15 17:31:20,R_3B9b1wI9p7ICU5t,,,,,42.3737,-71.1284,anonymous,EN,Laurel,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-15 17:30:37,2024-12-15 17:31:37,IP Address,76.33.139.26,100,60,True,2024-12-15 17:31:38,R_7lMvTP8MsNQmL9f,,,,,34.1535,-117.8457,anonymous,EN,Laurel,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-15 17:30:50,2024-12-15 17:32:27,IP Address,65.112.8.19,100,96,True,2024-12-15 17:32:27,R_6QhM33sZBqPyE4N,,,,,42.3737,-71.1284,anonymous,EN,Yanny,3,3
+2024-12-15 17:33:03,2024-12-15 17:33:59,IP Address,68.58.219.167,100,56,True,2024-12-15 17:34:00,R_5dLANYcEyej3UWF,,,,,42.4593,-83.2207,anonymous,EN,Yanny,4,4
+2024-12-15 17:30:54,2024-12-15 17:34:02,IP Address,65.112.8.51,100,187,True,2024-12-15 17:34:02,R_7MrDX23fMrqPbFe,,,,,42.3737,-71.1284,anonymous,EN,Laurel,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-15 17:32:09,2024-12-15 17:34:03,IP Address,65.112.8.31,100,113,True,2024-12-15 17:34:03,R_6p0alu9sas4yMDV,,,,,42.3737,-71.1284,anonymous,EN,Yanny,3,I heard Yanny for all of them
+2024-12-15 17:36:40,2024-12-15 17:37:23,IP Address,65.112.8.53,100,42,True,2024-12-15 17:37:23,R_5eVlbMRUoZYYONE,,,,,42.3737,-71.1284,anonymous,EN,Laurel,5,3
+2024-12-15 17:36:48,2024-12-15 17:37:29,IP Address,172.56.199.72,100,40,True,2024-12-15 17:37:29,R_7FWGCLUzq9eFnnH,,,,,42.4338,-71.0656,anonymous,EN,Yanny,5,4
+2024-12-15 17:37:16,2024-12-15 17:38:05,IP Address,104.28.39.33,100,48,True,2024-12-15 17:38:05,R_5dGlL2HF4JAUSPG,,,,,42.3725,-71.1814,anonymous,EN,Yanny,4,4
+2024-12-15 17:39:05,2024-12-15 17:40:11,IP Address,65.112.8.26,100,65,True,2024-12-15 17:40:11,R_3h7zJF7THGSOq9H,,,,,42.3737,-71.1284,anonymous,EN,Laurel,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-15 17:45:37,2024-12-15 17:46:46,IP Address,65.112.8.51,100,68,True,2024-12-15 17:46:47,R_7sJ2aJycj0HEd0J,,,,,42.3737,-71.1284,anonymous,EN,Laurel,6,3
+2024-12-15 17:46:56,2024-12-15 17:48:40,IP Address,72.35.144.32,100,103,True,2024-12-15 17:48:40,R_1IH65fF8Yp9fPYB,,,,,44.0185,-121.2984,anonymous,EN,Yanny,4,4
+2024-12-15 17:55:04,2024-12-15 17:55:54,IP Address,24.208.137.154,100,50,True,2024-12-15 17:55:54,R_7NWXB5avAg7RqG1,,,,,39.8842,-82.7535,anonymous,EN,Yanny,4,2
+2024-12-15 17:57:30,2024-12-15 17:59:27,IP Address,65.112.8.48,100,116,True,2024-12-15 17:59:27,R_3t3Y2pz8NGUO2cl,,,,,42.3737,-71.1284,anonymous,EN,Laurel,4,4
+2024-12-15 18:01:31,2024-12-15 18:03:03,IP Address,65.112.8.23,100,92,True,2024-12-15 18:03:04,R_5flRmlAFe2hlOZ6,,,,,42.3737,-71.1284,anonymous,EN,Yanny,4,4
+2024-12-15 18:01:47,2024-12-15 18:04:03,IP Address,65.112.8.49,100,135,True,2024-12-15 18:04:03,R_6ezc4j6I28rnVPT,,,,,42.3737,-71.1284,anonymous,EN,Yanny,3,6
+2024-12-15 18:09:05,2024-12-15 18:09:49,IP Address,24.213.201.201,100,44,True,2024-12-15 18:09:50,R_5QPk3mBiZgK7fRc,,,,,42.4444,-76.4926,anonymous,EN,Laurel,4,4
+2024-12-15 18:09:13,2024-12-15 18:10:02,IP Address,104.28.124.166,100,49,True,2024-12-15 18:10:03,R_61ax7MUKO9e0CYy,,,,,38.6226,-121.3885,anonymous,EN,Yanny,5,3
+2024-12-15 18:10:20,2024-12-15 18:11:27,IP Address,65.112.8.22,100,66,True,2024-12-15 18:11:27,R_3xaOKnXG3GgKddD,,,,,42.3737,-71.1284,anonymous,EN,Yanny,5,5
+2024-12-15 18:11:46,2024-12-15 18:13:07,IP Address,96.250.232.110,100,81,True,2024-12-15 18:13:08,R_5doMJ0BEMhDiOu8,,,,,40.68,-73.775,anonymous,EN,Laurel,5,2
+2024-12-15 18:17:01,2024-12-15 18:17:42,IP Address,47.144.41.159,100,41,True,2024-12-15 18:17:42,R_3R9Qv9KvtL9qlMf,,,,,34.2193,-118.9842,anonymous,EN,Laurel,I heard Laurel for all of them,4
+2024-12-15 18:47:29,2024-12-15 18:48:18,IP Address,146.75.253.248,100,48,True,2024-12-15 18:48:18,R_62rSYEbuOGdXAJT,,,,,42.3913,-70.9094,anonymous,EN,Yanny,4,5
+2024-12-15 18:50:34,2024-12-15 18:51:21,IP Address,172.225.252.155,100,47,True,2024-12-15 18:51:21,R_2ZCbFQK4uQlVMZp,,,,,49.6113,6.1294,anonymous,EN,Laurel,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-15 19:02:55,2024-12-15 19:05:09,IP Address,174.212.161.117,100,134,True,2024-12-15 19:05:10,R_6v7gY0b9qPo5Hbr,,,,,36.0014,-83.9125,anonymous,EN,Yanny,4,6
+2024-12-15 19:09:13,2024-12-15 19:09:52,IP Address,65.112.8.56,100,39,True,2024-12-15 19:09:53,R_1iec9q90rLOlap3,,,,,42.3737,-71.1284,anonymous,EN,Yanny,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-15 19:19:59,2024-12-15 19:20:41,IP Address,65.112.8.20,100,41,True,2024-12-15 19:20:41,R_7LYZnLGnqqKdPUv,,,,,42.3737,-71.1284,anonymous,EN,Yanny,3,I heard Yanny for all of them
+2024-12-15 19:24:01,2024-12-15 19:24:51,IP Address,172.56.192.222,100,49,True,2024-12-15 19:24:51,R_7nOUqn73AvjUj4K,,,,,42.415,-71.0527,anonymous,EN,Yanny,4,4
+2024-12-15 19:35:36,2024-12-15 19:36:42,IP Address,65.112.8.16,100,66,True,2024-12-15 19:36:43,R_6lfWO9qXSSf14H9,,,,,42.3737,-71.1284,anonymous,EN,Laurel,6,I heard Laurel for all of them
+2024-12-15 19:39:29,2024-12-15 19:40:01,IP Address,132.183.13.230,100,32,True,2024-12-15 19:40:02,R_6NkzJycDMhVFcA2,,,,,42.3634,-71.0713,anonymous,EN,Laurel,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-15 19:58:01,2024-12-15 19:59:27,IP Address,140.186.235.161,100,85,True,2024-12-15 19:59:27,R_6us1c90elvzrPJw,,,,,44.4974,-103.8669,anonymous,EN,Laurel,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-15 20:04:11,2024-12-15 20:05:16,IP Address,65.112.8.57,100,64,True,2024-12-15 20:05:16,R_1d4efJvBjsjzf69,,,,,42.3737,-71.1284,anonymous,EN,Yanny,6,5
+2024-12-15 20:27:52,2024-12-15 20:29:04,IP Address,68.59.170.33,100,71,True,2024-12-15 20:29:05,R_6WI4Ngk6J4lr6xr,,,,,41.0492,-85.304,anonymous,EN,Laurel,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-15 20:41:09,2024-12-15 20:42:24,IP Address,67.87.134.223,100,74,True,2024-12-15 20:42:25,R_5TzVEPIuiVeaObM,,,,,41.1426,-73.8295,anonymous,EN,Laurel,5,3
+2024-12-15 20:49:29,2024-12-15 20:50:06,IP Address,69.166.115.243,100,36,True,2024-12-15 20:50:06,R_3KfndVbdD2Xtm3r,,,,,49.1689,-123.1442,anonymous,EN,Laurel,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-15 21:21:33,2024-12-15 21:22:27,IP Address,65.112.8.29,100,54,True,2024-12-15 21:22:28,R_5Nl7ZmoXB82AyFa,,,,,42.3737,-71.1284,anonymous,EN,Laurel,4,2
+2024-12-15 21:36:40,2024-12-15 21:37:46,IP Address,65.112.8.51,100,66,True,2024-12-15 21:37:46,R_15ShBpFogg1iUdt,,,,,42.3737,-71.1284,anonymous,EN,Yanny,4,4
+2024-12-15 21:35:28,2024-12-15 21:38:44,IP Address,65.112.8.31,100,196,True,2024-12-15 21:38:45,R_50McbDKh4Up6qWC,,,,,42.3737,-71.1284,anonymous,EN,Laurel,4,4
+2024-12-15 22:22:05,2024-12-15 22:26:28,IP Address,172.226.200.13,100,263,True,2024-12-15 22:26:29,R_5MJufDgLCoLowX4,,,,,40.7123,-74.0068,anonymous,EN,Yanny,4,7
+2024-12-15 23:38:15,2024-12-15 23:38:48,IP Address,65.112.8.24,100,33,True,2024-12-15 23:38:49,R_5nVqtjFiHyR2aM2,,,,,42.3737,-71.1284,anonymous,EN,Laurel,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-16 00:53:24,2024-12-16 00:54:43,IP Address,5.77.200.36,100,78,True,2024-12-16 00:54:43,R_8CD7f9wNHW9tPfy,,,,,40.1817,44.5099,anonymous,EN,Laurel,4,4
+2024-12-16 03:03:20,2024-12-16 03:04:01,IP Address,65.112.8.57,100,40,True,2024-12-16 03:04:01,R_7Bn2bDiUjnA9UMV,,,,,42.3737,-71.1284,anonymous,EN,Laurel,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-16 06:46:03,2024-12-16 06:47:05,IP Address,72.106.190.160,100,61,True,2024-12-16 06:47:05,R_6CHZLWv6qHVSK0k,,,,,42.3562,-71.0631,anonymous,EN,Laurel,5,3
+2024-12-16 08:03:25,2024-12-16 08:04:06,IP Address,65.112.8.26,100,40,True,2024-12-16 08:04:06,R_32JxBZF7Q8G9bfT,,,,,42.3737,-71.1284,anonymous,EN,Laurel,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-16 10:35:47,2024-12-16 10:37:05,IP Address,99.254.245.58,100,78,True,2024-12-16 10:37:05,R_5mf1YLP0XjNAJO7,,,,,43.3679,-80.9523,anonymous,EN,Yanny,2,4
+2024-12-16 11:37:13,2024-12-16 11:38:47,IP Address,65.112.8.54,100,93,True,2024-12-16 11:38:47,R_6IWt6LMA7SpJb7g,,,,,42.3737,-71.1284,anonymous,EN,Laurel,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-16 12:45:02,2024-12-16 12:46:29,IP Address,149.75.22.84,100,87,True,2024-12-16 12:46:30,R_3Hjg57qGzmc7RFD,,,,,37.9653,-87.3902,anonymous,EN,Laurel,I heard Laurel for all of them,I heard Laurel for all of them
+2024-12-16 12:44:43,2024-12-16 12:46:37,IP Address,65.112.8.18,100,114,True,2024-12-16 12:46:37,R_32Rth0eAsYZUzVb,,,,,42.3737,-71.1284,anonymous,EN,Yanny,3,5
