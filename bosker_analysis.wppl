@@ -1,0 +1,215 @@
+// Section 1
+
+var highpass_probs = {
+    1: 0.1632653, 2: 0.1937984, 3: 0.2162978, 4: 0.3774319, 
+    5: 0.5439122, 6: 0.7350929, 7: 0.8235908
+  }
+  
+var lowpass_probs = {
+  1: 0.2185366, 2: 0.2415507, 3: 0.2895753, 4: 0.4550781,
+  5: 0.6337891, 6: 0.8251473, 7: 0.9055441
+}
+
+var makeModel = function(f) {return function() {
+  var primingCond = flip() ? 'lowpass' : 'highpass'
+  var step = sample(Categorical({vs: [1, 2, 3, 4, 5, 6, 7], 
+                          ps: [1/7, 1/7, 1/7, 1/7, 1/7, 1/7, 1/7]}))
+  
+  var p_yanny = (primingCond == 'highpass') ? highpass_probs[step] : lowpass_probs[step]
+  
+  var resp = flip(p_yanny) ? 'Yanny' : 'Laurel'
+  
+  f(resp, step, primingCond)
+}}
+
+editor.put("makeModel", makeModel)
+
+
+
+// Section 2
+
+var makeModel = editor.get("makeModel")
+
+var scores = []
+
+var generateFrom = function(scores) {
+  var current_step = scores.length + 1
+  
+  if(current_step > 7) {
+    return scores
+  } else {
+    var dist = Infer({method:'enumerate'}, makeModel(function(resp, step, primingCond) {
+      condition(step==current_step)
+      resp
+    }))
+
+    var yanny_prop = Math.exp(dist.score("Yanny"))
+
+    var new_scores = scores.concat(yanny_prop)
+  
+    return generateFrom(new_scores)
+  }
+}
+
+var scores = generateFrom([])
+print("Scores: " + scores)
+
+// Section 3
+
+var makeModel = editor.get("makeModel")
+
+var generateFrom = function(scores, priming) {
+  var current_step = scores.length + 1
+  
+  if(current_step > 7) {
+    return scores
+  } else {
+    var dist = Infer({method:'enumerate'}, makeModel(function(resp, step, primingCond) {
+      condition(step==current_step)
+      condition(primingCond==priming)
+      resp
+    }))
+
+    var yanny_prop = Math.exp(dist.score("Yanny"))
+
+    var new_scores = scores.concat(yanny_prop)
+  
+    return generateFrom(new_scores, priming)
+  }
+}
+
+var high_scores = generateFrom([], "highpass")
+var low_scores = generateFrom([], "lowpass")
+print("High-pass Priming Scores: " + high_scores)
+print("Low-pass Priming Scores: " + low_scores)
+
+// Section 4
+
+var makeModel = editor.get("makeModel")
+var dist = Infer({method:'enumerate'}, makeModel(function(resp, step, primingCond) {
+  condition(resp=="Yanny")
+  primingCond
+}))
+print(dist)
+viz(dist, {xLabel: 'Priming Condition Given Yanny Response', yLabel: 'Probability'})
+
+var dist = Infer({method:'enumerate'}, makeModel(function(resp, step, primingCond) {
+  condition(resp=="Yanny")
+  step
+}))
+print(dist)
+viz(dist, {xLabel: 'Step Given Yanny Response', yLabel: 'Probability'})
+
+// Section 5
+
+var yannyProbs = {
+  'yanny_bias': {
+    'highpass': {
+      1:0.40625, 2:0.49869452, 3:0.52673797, 4:0.90180879, 5:0.97382199, 6:0.99465241, 7: 0.99717514
+    },
+    'lowpass': {
+      1:0.45974026, 2:0.50656168, 3:0.62500000, 4:0.94072165, 5:0.98927614, 6:0.99452055, 7:0.98648649
+    }
+  },
+  'laurel_bias': {
+    'highpass': {
+      1: 0.010600707, 2: 0.001754386, 3:0.012844037, 4:0.039586919, 5:0.223443223, 6:0.554964539, 7:0.711610487
+    },
+    'lowpass': {
+      1: 0.051236749, 2: 0.056363636, 3:0.053191489, 4:0.105802048, 5:0.366024518, 6:0.697345133, 7:0.838709677
+    }
+  }
+}
+
+var makeModel = function(f) {return function() {
+  var priming = mem(function(audio){flip() ? 'lowpass' : 'highpass'})
+  var step = mem(function(audio){sample(Categorical({vs: [1, 2, 3, 4, 5, 6, 7], 
+                          ps: [1/7, 1/7, 1/7, 1/7, 1/7, 1/7, 1/7]}))})
+  
+  var yanny_bias = mem(function(person){flip(0.4)})
+  
+  var p_yanny = mem(function(person, audio){yanny_bias(person) ? yannyProbs['yanny_bias'][priming(audio)][step(audio)] : yannyProbs['laurel_bias'][priming(audio)][step(audio)]}) 
+  
+  var resp = mem(function(person, audio){flip(p_yanny(person, audio)) ? 'Yanny' : 'Laurel'})
+  
+  f(resp, step, priming, yanny_bias)
+}}
+
+editor.put("makeModel", makeModel)
+
+// Section 6
+
+var makeModel = editor.get("makeModel")
+
+var dist = Infer({method:'enumerate'}, makeModel(function(resp, step, priming, yanny_bias) {
+  condition(yanny_bias("Y"))
+  resp('Y', 1)
+}))
+viz(dist, {xLabel: 'Response for Yanny-biased person', yLabel: 'Probability'})
+print(dist)
+
+var dist = Infer({method:'enumerate'}, makeModel(function(resp, step, priming, yanny_bias) {
+  condition(!yanny_bias("L"))
+  resp('L', 1)
+}))
+viz(dist, {xLabel: 'Response for Laurel-biased person', yLabel: 'Probability'})
+print(dist)
+
+// Section 7
+
+var makeModel = editor.get("makeModel")
+
+var dist = Infer({method:'enumerate'}, makeModel(function(resp, step, priming, yanny_bias) {
+  condition(priming('audio1')=='lowpass' && step('audio1') == 4 && resp('person1', 'audio1') == 'Laurel')
+  condition(priming('audio2')=='highpass' && step('audio2') == 6 && resp('person1', 'audio2') == 'Laurel')
+  condition(priming('audio3')=='highpass' && step('audio3') == 3 && resp('person1', 'audio3') == 'Laurel')
+  condition(priming('audio4')=='highpass' && step('audio4') == 7 && resp('person1', 'audio4') == 'Yanny')
+  yanny_bias('person1')
+}))
+print(dist)
+
+var dist = Infer({method:'enumerate'}, makeModel(function(resp, step, priming, yanny_bias) {
+  condition(priming('audio1')=='lowpass' && step('audio1') == 4 && resp('person1', 'audio1') == 'Laurel')
+  condition(priming('audio2')=='highpass' && step('audio2') == 6 && resp('person1', 'audio2') == 'Laurel')
+  condition(priming('audio3')=='highpass' && step('audio3') == 3 && resp('person1', 'audio3') == 'Laurel')
+  condition(priming('audio4')=='highpass' && step('audio4') == 7 && resp('person1', 'audio4') == 'Yanny')
+  condition(priming('audio5') == 'lowpass' && step('audio5') == 6)
+  resp('person1', 'audio5')
+}))
+print(dist)
+
+var dist = Infer({method:'enumerate'}, makeModel(function(resp, step, priming, yanny_bias) {
+  condition(priming('audio1')=='lowpass' && step('audio1') == 4 && resp('person1', 'audio1') == 'Laurel')
+  condition(priming('audio2')=='highpass' && step('audio2') == 6 && resp('person1', 'audio2') == 'Laurel')
+  condition(priming('audio3')=='highpass' && step('audio3') == 3 && resp('person1', 'audio3') == 'Laurel')
+  condition(priming('audio4')=='highpass' && step('audio4') == 7 && resp('person1', 'audio4') == 'Yanny')
+  condition(priming('audio5') == 'highpass' && step('audio5') == 5)
+  resp('person1', 'audio5')
+}))
+
+print(dist)
+
+// Section 8
+
+var makeModel = editor.get("makeModel")
+var dist = Infer({method:'enumerate'}, makeModel(function(resp, step, priming, yanny_bias) {
+  condition(priming('audio1')=='highpass' && step('audio1') == 7 && resp('person2', 'audio1') == 'Yanny')
+  condition(priming('audio2')=='lowpass' && step('audio2') == 6 && resp('person2', 'audio2') == 'Yanny')
+  condition(priming('audio3')=='lowpass' && step('audio3') == 2 && resp('person2', 'audio3') == 'Laurel')
+  condition(priming('audio4')=='highpass' && step('audio4') == 1 && resp('person2', 'audio4') == 'Laurel')
+  condition(priming('audio5') == 'highpass' && step('audio5') == 4)
+  resp('person1', 'audio5')
+}))
+
+print(dist)
+
+var dist = Infer({method:'enumerate'}, makeModel(function(resp, step, priming, yanny_bias) {
+  condition(priming('audio1')=='highpass' && step('audio1') == 7 && resp('person2', 'audio1') == 'Yanny')
+  condition(priming('audio2')=='lowpass' && step('audio2') == 6 && resp('person2', 'audio2') == 'Yanny')
+  condition(priming('audio3')=='lowpass' && step('audio3') == 2 && resp('person2', 'audio3') == 'Laurel')
+  condition(priming('audio4')=='highpass' && step('audio4') == 1 && resp('person2', 'audio4') == 'Laurel')
+  condition(priming('audio6') == 'lowpass' && step('audio6') == 1)
+  resp('person1', 'audio6')
+}))
+
+print(dist)
