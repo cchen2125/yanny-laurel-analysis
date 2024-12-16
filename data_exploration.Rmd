@@ -1,0 +1,133 @@
+---
+title: "data_exploration"
+author: "Clara Chen"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+dat <- read.table(file="bosker_paper/Archive/archived_data.csv", sep=",", header=T)
+```
+
+
+```{r}
+# select data cleaning steps from the original analysis
+dat <- dat[!(is.na(dat$yannyresp)),]
+
+ntrials <- as.data.frame(table(dat$participantID))
+
+aux2 <- as.character(ntrials[ntrials$Freq < 5,1])
+nrows <- length(aux2)
+if (nrows != 0){
+  for (i in 1:nrows ) {
+    if (i == 1) {
+      excl <- dat[dat$participantID != aux2[i],]
+    } else {
+      excl <- excl[excl$participantID != aux2[i],]
+    }
+  }
+}
+
+dat <- excl
+
+dat$step <- dat$step - 4
+dat <- dat %>% filter(step > 0)
+dat$condproper <- "high-pass filtered"
+dat[dat$cond=="lopass",]$condproper <- "low-pass filtered"
+```
+
+```{r}
+write.csv(dat,"clean_data.csv", row.names = FALSE)
+```
+
+
+
+```{r}
+aggrdat <- dat %>% 
+  group_by(step, condproper) %>% 
+  summarize(yannyresp = mean(yannyresp))
+```
+
+```{r}
+aggrdat
+```
+
+
+```{r}
+ggplot(aggrdat, aes(x=step, y=yannyresp, color=condproper)) +
+  geom_point() +
+  geom_line() +
+  theme_bw() +
+  labs(x="Audio morphing step (original = 4)", y="Proportion hearing Yanny", color="Priming Condition")
+```
+
+```{r}
+yanny_bias_df <- dat %>% filter(step == 4) %>% 
+  group_by(participantID) %>% 
+  summarize(yanny_prop=mean(yannyresp)) %>% 
+  mutate(bias=ifelse(yanny_prop<0.5, 'Laurel', ifelse(yanny_prop>0.5, 'Yanny', 'None')))
+```
+
+```{r}
+yanny_bias_df %>% 
+  count(bias)
+```
+
+
+```{r}
+dat <- merge(dat, yanny_bias_df, by="participantID", all=TRUE)
+```
+
+```{r}
+aggrdat <- dat %>% 
+  filter(!is.na(bias)) %>% 
+  group_by(step, condproper, bias) %>% 
+  summarize(yannyresp = mean(yannyresp)) %>% 
+  arrange(bias, condproper)
+```
+
+```{r}
+ggplot(aggrdat, aes(x=step, y=yannyresp, color=bias, linetype=condproper)) +
+  geom_point() +
+  geom_line() +
+  theme_bw()
+```
+
+```{r}
+dat %>% count(participantID)
+```
+
+
+```{r}
+dat %>% filter(participantID == "s.0157be8b-514e-4732-8ae8-4bdd5a0a2480.txt")
+```
+
+```{r}
+dat %>% filter(participantID == "s.0157be8b-514e-4732-8ae8-4bdd5a0a2480.txt") %>% 
+  group_by(cond, step) %>% 
+  summarize(mean(yannyresp))
+```
+
+```{r}
+dat %>% filter(bias=="None") %>% count(participantID)
+```
+
+```{r}
+dat %>% filter(participantID=="s.02da9458-6e73-43f0-b207-0cbedb462e6e.txt") 
+```
+
+```{r}
+dat %>% filter(participantID=="s.02da9458-6e73-43f0-b207-0cbedb462e6e.txt") %>% 
+  group_by(cond, step) %>% 
+  summarize(mean(yannyresp))
+```
+
